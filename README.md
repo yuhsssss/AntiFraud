@@ -165,7 +165,7 @@ You will see the application launch and enter the home screen, where you can sta
 
 ## 🔗 Third-Party Services
 
-- Google Speech API
+- Google Speech-to-Text API
 - Azure OpenAI API
 
 ---
