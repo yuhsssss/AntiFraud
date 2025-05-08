@@ -1,97 +1,180 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📞 Anti-Fraud Call System
 
-# Getting Started
+A proactive anti-fraud mobile application integrating speech-to-text, keyword extraction, encryption technology, and ciphertext comparison. This system simulates human alertness to sensitive words during calls, provides real-time scam risk analysis and warnings, and helps users prevent fraud.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## ✅ Core Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Speech-to-Text**: Converts call recordings into analyzable text.
+- **Keyword Extraction**: Uses NLP technology to extract potential scam-related keywords from text.
+- **Ciphertext Comparison**: Encrypts keywords and compares them with a database to ensure privacy and enhance security.
+- **Risk Assessment and Alerts**: Provides graded warnings to users about potential scam risks based on the proportion of detected keywords.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
 
-```sh
-# Using npm
-npm start
+## 🖼 User Interface
+![image](https://github.com/user-attachments/assets/65148ae1-558b-4aef-a9de-7adfbba199ed)
 
-# OR using Yarn
-yarn start
+- **Figure 1:** Initial screen
+  
+![image](https://github.com/user-attachments/assets/a15be699-47f5-40ac-9f02-f207d9c14435)
+
+- **Figure 2:** Analysis Result Screen
+
+![image](https://github.com/user-attachments/assets/63c671a4-239f-4232-8504-cc505fd9ddd6)
+
+- **Figure 3:** Alert page
+
+---
+
+## ⚙️ Installation Guide
+
+Follow these steps to run the project locally.
+
+### 📦 Environment Requirements
+
+- Node.js v16.15.0 or above
+- React Native CLI
+- Android Studio + Android SDK
+- JDK 11 or above
+- Gradle
+- Physical Android device or emulator
+
+---
+
+### 1️⃣ Install React Native CLI
+```bash
+npx @react-native-community/cli@latest init AntiFraud
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### 2️⃣ Download and Install Android Studio
 
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+- Select to install **Android SDK**, **Android SDK Platform**, and **Android Virtual Device**.
+- Set the `ANDROID_HOME` environment variable:
+```bash
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
-### iOS
+---
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+### 3️⃣ Obtain the Project Code
+```bash
+git clone https://github.com/yuhsssss/AntiFraud.git
+cd AntiFraud
 ```
 
-Then, and every time you update your native dependencies, run:
+---
 
-```sh
-bundle exec pod install
+### 4️⃣ Install Project Dependencies
+```bash
+npm install
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
 
-```sh
-# Using npm
-npm run ios
+### 5️⃣ Set Environment Variables
 
-# OR using Yarn
-yarn ios
+Create a `.env` file in the root directory and fill in your API keys to ensure the speech-to-text and keyword extraction features work properly:
+```bash
+Google Speech-to-Text Service
+GOOGLE_API_KEY=your_google_api_key
+GOOGLE_SPEECH_URL=https://speech.googleapis.com/v1/speech:recognize
+
+Azure OpenAI Keyword Extraction Settings
+AZURE_OPENAI_ENDPOINT=https://your-resource-name.openai.azure.com/
+API_KEY=your_azure_openai_key
+DEPLOYMENT_NAME=your-deployment-id
+API_VERSION=2024-02-01
+```
+---
+
+### 6️⃣ Build Android Native Modules
+```bash
+cd android
+./gradlew clean
+cd ..
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### 7️⃣ Start Metro Bundler
+```bash
+npx react-native start
+```
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
+### 8️⃣ Install to Android Device
+```bash
+npx react-native run-android
+```
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+> ⚠️ If using a physical device, please enable USB debugging and ensure the device is connected.
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+---
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## ✅ After Successful Execution
 
-## Congratulations! :tada:
+You will see the application launch and enter the home screen, where you can start using the system features.
 
-You've successfully run and modified your React Native App. :partying_face:
+---
 
-### Now what?
+## 🌐 Environment Variable Description
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+| Variable Name         | Description                                                                                      |
+|----------------------|--------------------------------------------------------------------------------------------------|
+| GOOGLE_API_KEY        | Google Speech-to-Text API key, used to access the speech-to-text service                        |
+| GOOGLE_SPEECH_URL     | Endpoint for Google Speech API, default: `https://speech.googleapis.com/v1/speech:recognize`    |
+| AZURE_OPENAI_ENDPOINT | Endpoint URL for Azure OpenAI, e.g., `https://your-resource-name.openai.azure.com/`             |
+| API_KEY               | API key for Azure OpenAI, used to authorize access to GPT models on Azure                       |
+| DEPLOYMENT_NAME       | The deployment name you created on Azure OpenAI (e.g., `gpt-keyword-v1`)                        |
+| API_VERSION           | Azure OpenAI API version used, e.g., `2023-12-01-preview`                                       |
 
-# Troubleshooting
+**Tips:**
+- Apply for a Google API key via [Google Cloud Console](https://console.cloud.google.com/).
+- Apply for an Azure OpenAI key and set up deployment via [Azure Portal](https://portal.azure.com/).
+- After configuration, ensure your `.env` file is in the project root directory and loaded before starting.
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+---
 
-# Learn More
+## 📁 Directory Structure
 
-To learn more about React Native, take a look at the following resources:
+| File/Folder           | Description                                  |
+|-----------------------|----------------------------------------------|
+| android/              | Android-related code                         |
+| server/               | Backend Node.js comparison module            |
+| src/_types_/env.d.ts  | Declaration of environment variables for @env |
+| App.tsx               | Main frontend application entry point         |
+| FetchKeywords.js      | Keyword extraction                           |
+| Transcriber.js        | Speech-to-text conversion                    |
+| FraudRisks.js         | Risk assessment                              |
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+
+## 🧰 Technologies
+
+- React Native
+- Node.js + Express
+- PKEET (Pairing-based Public Key Encryption with Equality Test) ciphertext comparison algorithm
+
+---
+
+## 🔗 Third-Party Services
+
+- Google Speech API
+- Azure OpenAI API
+
+---
+
+## 👥 Team Members
+
+- Wan-Ling Yeh
+- Pei-Ying Yang
+- Wei-Lin Chang
+- Yi-Chen Li
+
+**Advisor:** Prof. Tung-Tso Tsai (National Taiwan Ocean University)
