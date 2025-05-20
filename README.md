@@ -92,23 +92,7 @@ API_VERSION=2024-02-01
 ```
 ---
 
-### 6️⃣ Build Android Native Modules
-```bash
-cd android
-./gradlew clean
-cd ..
-```
-
----
-
-### 7️⃣ Start Metro Bundler
-```bash
-npx react-native start
-```
-
----
-
-### 8️⃣ Install to Android Device
+### 6️⃣ Install to Android Device
 ```bash
 npx react-native run-android
 ```
